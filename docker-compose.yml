@@ -1,0 +1,15 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mon-serveur-my-sql
+    environment:
+      MYSQL_ROOT_PASSWORD: your_password  # Définit le mot de passe root pour MySQL
+      MYSQL_DATABASE: example_db  # Nom de la base de données à créer
+      MYSQL_USER: user  # Utilisateur pour accéder à la base de données
+      MYSQL_PASSWORD: user_password  # Mot de passe de l'utilisateur
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql  # Persistance des données dans un volume nommé
+volumes:
+    db_data:  # Déclare un volume pour stocker les données MySQL
